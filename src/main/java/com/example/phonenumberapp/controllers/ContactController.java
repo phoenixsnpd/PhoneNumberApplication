@@ -37,13 +37,13 @@ public class ContactController {
     }
 
     @DeleteMapping("/contacts/{id}")
-    public ResponseEntity<?> deleteContactByID(@PathVariable long id) {
-        Contact contact = service.deleteContact(id);
+    public ResponseEntity<String> deleteContactByID(@PathVariable long id) {
+        service.deleteContact(id);
         return ResponseEntity.ok("Contact deleted successfully");
     }
 
     @PostMapping("contacts/{id}")
-    public ResponseEntity<?> editContact(@RequestBody ContactDTO updatedContact, @PathVariable long id) {
+    public ResponseEntity<String> editContact(@RequestBody ContactDTO updatedContact, @PathVariable long id) {
         Contact newContact = convertDTOToContact(updatedContact);
         service.editContact(id, newContact);
         return ResponseEntity.ok("Contact edited successfully");
