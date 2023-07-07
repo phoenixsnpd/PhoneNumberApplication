@@ -32,10 +32,6 @@ public class ContactService {
         return contactRepository.save(contact);
     }
 
-    public Contact getContactByID(long id) {
-        return contactRepository.getReferenceById(id);
-    }
-
     public Contact editContact(long contactID, Contact updatedContact) {
         Optional<Contact> optionalContact = contactRepository.findById(contactID);
         if (optionalContact.isPresent()) {
